@@ -1,5 +1,5 @@
 #include "file_log.h"
 
-int files_to_process(char *)
+int files_to_process(char *c)
 {
 }

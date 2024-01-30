@@ -26,5 +26,5 @@ uid_t user_status(char *c);
 // Inicializa la estructura file_info con la información de cada archivo a procesar
 void init_file_info(pfile, char *c);
 // Verifica si alguno de los archivos definidos han sido modificados
-void chk_files(pfile);
+void chk_files(pfile file);
 #endif
