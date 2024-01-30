@@ -24,7 +24,7 @@ time_t fmod_status(char *c);
 // Obtiene el id del usuario que ha modificado el archivo
 uid_t user_status(char *c);
 // Inicializa la estructura file_info con la información de cada archivo a procesar
-void init_file_info(pfile, char *c);
+void init_file_info(pfile *file, char *c);
 // Verifica si alguno de los archivos definidos han sido modificados
-void chk_files(pfile file);
+void chk_files(pfile *file);
 #endif
