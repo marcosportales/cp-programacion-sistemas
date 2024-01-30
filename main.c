@@ -2,39 +2,40 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include <sys/stat.h>
 
-#define INTERVAL 10
+void monitorFile(const char* filename, const char* logfilename) {
+    struct stat oldStat;
+    stat(filename, &oldStat);
 
-void o_mem_rate()
-{
-    FILE *fp, *log;
-    double mem_total, mem_free, mem_rate, mem_used;
+    while (1) {
+        struct stat newStat;
+        stat(filename, &newStat);
 
-    time_t time_actual;
+        if (newStat.st_mtim.tv_sec != oldStat.st_mtim.tv_sec ||
+            newStat.st_mtim.tv_nsec != oldStat.st_mtim.tv_nsec) {
+            time_t rawtime = newStat.st_mtim.tv_sec;
+            struct tm * timeinfo = localtime(&rawtime);
 
-    struct tm *time_info;
-    char timestamp[20];
-    
-    fp = fopen("proc/meminfo", "r");
-    log = fopen("./mem.log", "a+");
-    fscanf(fp, "Mem Tot: %lf KB\n", &mem_total);
-    fscanf(fp, "Mem Free: %lf KB\n", &mem_free);
+            printf("File %s was modified by %s at %s", filename, getlogin(), asctime(timeinfo));
 
-    mem_used = mem_total - mem_free;
-    mem_rate = (mem_used / mem_total) * 100;
-    time(&time_actual);
-    time_info = localtime(&time_actual);
-    strftime(timestamp, 20, "%y - %m - %d - %H:%M:%S", time_info);
-    fprintf(log, "[%s] Mem Rate: %lf\n", timestamp, mem_rate);
-    fclose(fp);
+            FILE *logfile = fopen(logfilename, "a");
+            if (logfile == NULL) {
+                perror("Error opening log file");
+                return;
+            }
+
+            fprintf(logfile, "File %s was modified by %s at %s", filename, getlogin(), asctime(timeinfo));
+            fclose(logfile);
+
+            oldStat = newStat;
+        }
+
+        sleep(1);
+    }
 }
 
-int main()
-{
-    while (1)
-    {
-        o_mem_rate();
-        sleep(INTERVAL);
-    }
+int main(int argc, char **argv) {
+    monitorFile(argv[1], argv[2]);
     return 0;
 }
