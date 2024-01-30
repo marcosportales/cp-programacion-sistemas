@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <time.h>
 
-#define INTERVAL 3600
+#define INTERVAL 10
 
 void o_mem_rate()
 {

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define INTERVAL 36000
+#define INTERVAL 10
 
 int main () {
 
