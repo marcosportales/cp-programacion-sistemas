@@ -18,7 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="created implementation">
+    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
@@ -75,14 +75,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main-victor-implementation-fix",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/victor/CLionProjects/cp-programacion-sistemas",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -111,6 +111,9 @@
       <workItem from="1706655154492" duration="2526000" />
       <workItem from="1706657904728" duration="315000" />
       <workItem from="1706658504525" duration="766000" />
+      <workItem from="1706661735128" duration="252000" />
+      <workItem from="1706661993481" duration="37000" />
+      <workItem from="1706662035642" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="created implementation">
       <option name="closed" value="true" />
@@ -134,5 +137,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created implementation" />
     <option name="LAST_COMMIT_MESSAGE" value="created implementation" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
