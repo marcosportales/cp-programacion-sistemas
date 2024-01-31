@@ -1,55 +1,72 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <time.h>
-#include <sys/stat.h>
 #include <string.h>
+#include <time.h>
+#include <unistd.h>
+#include <malloc.h>
+#include <stdlib.h>
+#include <sys/stat.h>
 
-void monitoringFiles(const char* filename, const char* logfilename) {
-    FILE *file = fopen(filename, "r");
+#define CONFIG_FILE "/home/victor/CLionProjects/cp-programacion-sistemas/file.conf"
+#define LOG_FILE "/home/victor/CLionProjects/cp-programacion-sistemas/log.txt"
+#define CHECK_INTERVAL 1
+
+typedef struct {
+    char* path;
+} Path;
+
+Path* readConfigFile() {
+    FILE* file = fopen(CONFIG_FILE, "r");
     if (file == NULL) {
-        perror("Error opening config file");
-        return;
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
     }
 
+    Path* paths = malloc(sizeof(Path));
     char line[256];
-    while (1) {
-        while (fgets(line, sizeof(line), file)) {
-            size_t len = strlen(line);
-            if (len > 0 && line[len - 1] == '\n') {
-                line[--len] = '\0';
-            }
+    int i = 0;
 
-            struct stat oldStat;
-            stat(filename, &oldStat);
+    while (fgets(line, sizeof(line), file)) {
+        paths[i].path = strdup(line);
+        i++;
+        paths = realloc(paths, (i + 1) * sizeof(Path));
+    }
 
-            struct stat newStat;
-            stat(line, &newStat);
+    fclose(file);
+    return paths;
+}
 
-            if (newStat.st_mtim.tv_sec != oldStat.st_mtim.tv_sec ||
-                newStat.st_mtim.tv_nsec != oldStat.st_mtim.tv_nsec) {
-                time_t rawtime = newStat.st_mtim.tv_sec;
-                struct tm *timeinfo = localtime(&rawtime);
+void checkFile(Path file) {
+    struct stat attrs;
+    if (stat(file.path, &attrs) != 0) {
+        perror("Error getting file attributes");
+        exit(EXIT_FAILURE);
+    }
 
-                printf("File %s was modified by %s at %s", filename, getlogin(), asctime(timeinfo));
+    printf("Last modified time: %ld\n", attrs.st_mtime);
 
-                FILE *logfile = fopen(logfilename, "a");
-                if (logfile == NULL) {
-                    perror("Error opening log file");
-                    return;
-                }
-
-                fprintf(logfile, "File %s was modified by %s at %s", filename, getlogin(), asctime(timeinfo));
-                fclose(logfile);
-
-                oldStat = newStat;
-            }
+    if (attrs.st_mtime > time(NULL) - CHECK_INTERVAL) {
+        FILE* logFile = fopen(LOG_FILE, "a");
+        if (logFile == NULL) {
+            perror("Error opening log file");
+            exit(EXIT_FAILURE);
         }
-            sleep(10);
+
+        fprintf(logFile, "File %s was modified at time %ld by user %s\n", file.path, time(NULL) - CHECK_INTERVAL,
+                getlogin());
+        fclose(logFile);
     }
 }
 
 int main() {
-    monitoringFiles("/etc/sec-info/file.conf", "/var/log/file_chkd.log");
+    Path* filesToCheck = readConfigFile();
+
+    while (1) {
+        for (int i = 0; filesToCheck[i].path != NULL; i++) {
+            checkFile(filesToCheck[i]);
+        }
+
+        sleep(CHECK_INTERVAL);
+    }
+
     return 0;
 }
