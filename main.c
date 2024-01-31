@@ -2,7 +2,6 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-#include <malloc.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 
@@ -67,6 +66,4 @@ int main() {
 
         sleep(CHECK_INTERVAL);
     }
-
-    return 0;
 }
