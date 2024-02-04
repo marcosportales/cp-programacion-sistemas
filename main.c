@@ -4,9 +4,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <windows.h>
 
-#define CONFIG_FILE "/etc/sec-info/file.conf"
-#define LOG_FILE "/etc/sec-info/log.txt"
+#define CONFIG_FILE "file.conf"
+#define LOG_FILE "log.txt"
 #define CHECK_INTERVAL 10
 
 typedef struct {
@@ -40,18 +41,30 @@ void checkFile(Path file) {
         perror("Error getting file attributes");
         exit(EXIT_FAILURE);
     }
-
-    printf("Last modified time: %ld\n", attrs.st_mtime);
-
+    time_t temp = attrs.st_mtime;
+    printf("Last modified time: %s\n", ctime(&temp));
+    // printf("%ld\n", attrs.st_mtime > time(NULL) - CHECK_INTERVAL);
     if (attrs.st_mtime > time(NULL) - CHECK_INTERVAL) {
         FILE* logFile = fopen(LOG_FILE, "a");
         if (logFile == NULL) {
             perror("Error opening log file");
             exit(EXIT_FAILURE);
         }
+        char nombre[256]; // cadena para guardar el nombre de usuario
+        DWORD tam = sizeof(nombre); // tamaño de la cadena
+        BOOL resultado = GetUserName(nombre, &tam); // llamada a la función
+        time_t t = time(NULL) - CHECK_INTERVAL;
+        char* fecha = ctime(&t);
+        if (resultado) // si la función tuvo éxito
+        {
+            fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, nombre);
+        }
+        else // si hubo algún error
+        {
+            fprintf(logFile, "File %s was modified at time %s but no user found\n", file.path, fecha);
 
-        fprintf(logFile, "File %s was modified at time %ld by user %s\n", file.path, time(NULL) - CHECK_INTERVAL,
-                getlogin());
+        }
+
         fclose(logFile);
     }
 }
@@ -60,8 +73,10 @@ int main() {
     Path* filesToCheck = readConfigFile();
 
     while (1) {
-        for (int i = 0; filesToCheck[i].path != NULL; i++) {
+        int lim = sizeof(filesToCheck) / sizeof(filesToCheck[0]);
+        for (int i = 0; i < lim; i++) {
             checkFile(filesToCheck[i]);
+            // break;
         }
 
         sleep(CHECK_INTERVAL);
