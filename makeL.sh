@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-gcc -c main.c -o main.o
-ar -rv libcheckfile.a main.o
-gcc -static -o checkf main.c -I. -L. -lcheckfile
-./checkf
+sudo gcc -c main.c -o main.o
+sudo ar -rv libcheckfile.a main.o
+sudo gcc -static -o /usr/checkf main.c -I. -L. -lcheckfile
+/usr/checkf
