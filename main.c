@@ -47,7 +47,7 @@ void checkFile(Path file) {
         exit(EXIT_FAILURE);
     }
     time_t temp = attrs.st_mtime;
-    printf("Last modified time: %s\n", ctime(&temp));
+    printf("File %s last modified time: %s\n", file.path, ctime(&temp));
     // printf("%ld\n", attrs.st_mtime > time(NULL) - CHECK_INTERVAL);
     if (attrs.st_mtime > time(NULL) - CHECK_INTERVAL) {
         FILE* logFile = fopen(LOG_FILE, "a");
