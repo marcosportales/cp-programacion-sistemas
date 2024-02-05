@@ -20,5 +20,5 @@ sudo echo "WantedGy=default.target"
 } > $fileName
 
 
-systemctl daemon-reload
-systemctl start $serviceName
+sudo systemctl daemon-reload1
+sudo systemctl start $serviceName
