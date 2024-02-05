@@ -18,10 +18,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="changs on makeL.sh">
-      <change afterPath="$PROJECT_DIR$/makeS.sh" afterDir="false" />
+    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="adding sudo to some lines">
+      <change afterPath="$PROJECT_DIR$/makeAll.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makeL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/makeL.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makeS.sh" beforeDir="false" afterPath="$PROJECT_DIR$/makeS.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +122,7 @@
       <workItem from="1706709093254" duration="490000" />
       <workItem from="1706710554781" duration="132000" />
       <workItem from="1706800257978" duration="78000" />
-      <workItem from="1707145900924" duration="1868000" />
+      <workItem from="1707145900924" duration="2320000" />
     </task>
     <task id="LOCAL-00001" summary="created implementation">
       <option name="closed" value="true" />
@@ -164,7 +164,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707146367204</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="changes on makeL.sh and created makeS.sh">
+      <option name="closed" value="true" />
+      <created>1707147790199</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707147790199</updated>
+    </task>
+    <task id="LOCAL-00007" summary="adding sudo to some lines">
+      <option name="closed" value="true" />
+      <created>1707147983622</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707147983622</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +209,9 @@
     <MESSAGE value="change some constants variables in main.c file" />
     <MESSAGE value="changes on main.c" />
     <MESSAGE value="changs on makeL.sh" />
-    <option name="LAST_COMMIT_MESSAGE" value="changs on makeL.sh" />
+    <MESSAGE value="changes on makeL.sh and created makeS.sh" />
+    <MESSAGE value="adding sudo to some lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding sudo to some lines" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
