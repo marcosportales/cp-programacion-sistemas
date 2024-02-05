@@ -1,4 +1,6 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 
 gcc -c main.c -o main.o
-gcc -static 
+ar -rv libcheckfile.a main.o
+gcc -static -o checkf main.c -I. -L. -libcheckfile
+./checkf
