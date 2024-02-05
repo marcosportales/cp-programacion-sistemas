@@ -4,7 +4,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-#include <windows.h>
+
+#ifdef _WIN32
+    #include <windows.h>
+#endif
 
 #define CONFIG_FILE "file.conf"
 #define LOG_FILE "log.txt"
@@ -55,22 +58,23 @@ void checkFile(Path file) {
             perror("Error opening log file");
             exit(EXIT_FAILURE);
         }
-        char nombre[256]; // cadena para guardar el nombre de usuario
-        DWORD tam = sizeof(nombre); // tamaño de la cadena
-        BOOL resultado = GetUserName(nombre, &tam); // llamada a la función
-        time_t t = time(NULL) - CHECK_INTERVAL;
-        char* fecha = ctime(&t);
-        if (resultado) // si la función tuvo éxito
-        {
-            fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, nombre);
-        }
-        else // si hubo algún error
-        {
-            fprintf(logFile, "File %s was modified at time %s but no user found\n", file.path, fecha);
+        #ifdef _WIN32
+            char nombre[256]; 
+            DWORD tam = sizeof(nombre); 
+            BOOL resultado = GetUserName(nombre, &tam);
+            time_t t = time(NULL) - CHECK_INTERVAL;
+            char* fecha = ctime(&t);
+            if (resultado)
+            {
+                fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, nombre);
+            }
+            else 
+            {
+                fprintf(logFile, "File %s was modified at time %s but no user found\n", file.path, fecha);
+            }
 
-        }
-
-        fclose(logFile);
+            fclose(logFile);
+        #endif
     }
 }
 
