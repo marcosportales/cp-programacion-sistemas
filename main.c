@@ -13,7 +13,7 @@
 typedef struct {
     char* path;
 } Path;
-
+int lim = 0;
 Path* readConfigFile() {
     FILE* file = fopen(CONFIG_FILE, "r");
     if (file == NULL) {
@@ -26,7 +26,12 @@ Path* readConfigFile() {
     int i = 0;
 
     while (fgets(line, sizeof(line), file)) {
+        if(strchr(line, '\n')){
+            line[strlen(line) - 1] = '\0';
+        }
+        lim++;
         paths[i].path = strdup(line);
+        
         i++;
         paths = realloc(paths, (i + 1) * sizeof(Path));
     }
@@ -72,8 +77,7 @@ void checkFile(Path file) {
 int main() {
     Path* filesToCheck = readConfigFile();
 
-    while (1) {
-        int lim = sizeof(filesToCheck) / sizeof(filesToCheck[0]);
+    while (1) {        
         for (int i = 0; i < lim; i++) {
             checkFile(filesToCheck[i]);
             // break;
