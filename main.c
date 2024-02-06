@@ -9,8 +9,8 @@
 #include <windows.h>
 #endif
 
-#define CONFIG_FILE "/home/victor/CLionProjects/cp-programacion-sistemas/file.conf"
-#define LOG_FILE "/home/victor/CLionProjects/cp-programacion-sistemas/log.txt"
+#define CONFIG_FILE "/etc/sec-info/file.conf"
+#define LOG_FILE "/etc/sec-info/log.txt"
 #define CHECK_INTERVAL 10
 
 typedef struct {

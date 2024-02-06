@@ -1,18 +1,23 @@
 #!/usr/bin/bash
 
-serviceName=file_chkd.service
-fileServiceName="/etc/systemd/system/$serviceName"
-sudo touch $fileServiceName
-sudo chmod 777 $fileServiceName
+serviceName="file_chkd.service"
+servicePath="/etc/systemd/system/$serviceName"
+execName="exec.sh"
+execPath="/usr/$execName"
+libName="checkf"
+libPath="/usr/$libName"
 
-execFileName="/usr/exec.sh"
-sudo touch $execFileName
-sudo chmod 777 $execFileName
+
+sudo touch $servicePath
+sudo chmod 777 $servicePath
+
+sudo touch "$execPath"
+sudo chmod 777 "$execPath"
 
 {
     echo "#!/usr/bin/bash"
-    echo "sudo \"/usr/checkf\""
-} >$execFileName
+    echo "sudo \"$libPath\""
+} >"$execPath"
 
 {
     sudo echo "[Unit]"
@@ -21,12 +26,12 @@ sudo chmod 777 $execFileName
 
     sudo echo "[Service]"
     sudo echo "Type=simple"
-    sudo echo "ExecStart=/usr/exec.sh"
+    sudo echo "ExecStart=$execPath"
     sudo echo "Restart=on-abnormal"
 
     sudo echo "[Install]"
     sudo echo "WantedBy=default.target"
-} >$fileServiceName
+} >$servicePath
 
 sudo systemctl daemon-reload
 sudo systemctl start $serviceName
