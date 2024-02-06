@@ -18,10 +18,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="adding sudo to some lines">
-      <change afterPath="$PROJECT_DIR$/makeAll.sh" afterDir="false" />
+    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="fixing service problem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makeS.sh" beforeDir="false" afterPath="$PROJECT_DIR$/makeS.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/MakeService.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/MakeService.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_exec.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file.conf" beforeDir="false" afterPath="$PROJECT_DIR$/file.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libcheckfile.a" beforeDir="false" afterPath="$PROJECT_DIR$/libcheckfile.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makeAll.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_all.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makeL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_lib.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makeS.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_service.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring.txt" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main-victor-implementation-fix-2" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,7 +87,7 @@
     "Shell Script.MakeService.executor": "Run",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "latest-changes",
     "last_opened_file_path": "/home/victor/CLionProjects/cp-programacion-sistemas",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -123,6 +132,7 @@
       <workItem from="1706710554781" duration="132000" />
       <workItem from="1706800257978" duration="78000" />
       <workItem from="1707145900924" duration="2320000" />
+      <workItem from="1707249196877" duration="887000" />
     </task>
     <task id="LOCAL-00001" summary="created implementation">
       <option name="closed" value="true" />
@@ -180,11 +190,22 @@
       <option name="project" value="LOCAL" />
       <updated>1707147983622</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixing service problem">
+      <option name="closed" value="true" />
+      <created>1707249247672</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707249247672</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
   </component>
   <component name="VCPKGProject">
     <isAutomaticCheckingOnLaunch value="false" />
@@ -211,7 +232,8 @@
     <MESSAGE value="changs on makeL.sh" />
     <MESSAGE value="changes on makeL.sh and created makeS.sh" />
     <MESSAGE value="adding sudo to some lines" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding sudo to some lines" />
+    <MESSAGE value="fixing service problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing service problem" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
