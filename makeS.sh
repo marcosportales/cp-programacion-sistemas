@@ -1,24 +1,32 @@
 #!/usr/bin/bash
 
 serviceName=file_chkd.service
-fileName="/etc/systemd/system/$serviceName"
-sudo touch $fileName
-sudo chmod 777 $fileName
+fileServiceName="/etc/systemd/system/$serviceName"
+sudo touch $fileServiceName
+sudo chmod 777 $fileServiceName
+
+execFileName="/usr/exec.sh"
+sudo touch $execFileName
+sudo chmod 777 $execFileName
 
 {
-sudo echo "[Unit]"
-sudo echo "Description=Monitoring files in."
-sudo echo "After=network.start"
+    echo "#!/usr/bin/bash"
+    echo "sudo \"/usr/checkf\""
+} >$execFileName
 
-sudo echo "[Service]"
-sudo echo "ExecStart=/usr/checkf"
-sudo echo "Type=simple"
-sudo echo "Restart=on-failure"
+{
+    sudo echo "[Unit]"
+    sudo echo "Description=Monitoring files in."
+    sudo echo "After=network.service"
 
-sudo echo "[Install]"
-sudo echo "WantedBy=default.target"
-} > $fileName
+    sudo echo "[Service]"
+    sudo echo "Type=simple"
+    sudo echo "ExecStart=/usr/exec.sh"
+    sudo echo "Restart=on-abnormal"
 
+    sudo echo "[Install]"
+    sudo echo "WantedBy=default.target"
+} >$fileServiceName
 
 sudo systemctl daemon-reload
 sudo systemctl start $serviceName
