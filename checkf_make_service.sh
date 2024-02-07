@@ -2,7 +2,7 @@
 
 serviceName="file_chkd.service"
 servicePath="/etc/systemd/system/$serviceName"
-execName="exec.sh"
+execName="checkf_exec.sh"
 execPath="/usr/$execName"
 libName="checkf"
 libPath="/usr/$libName"
