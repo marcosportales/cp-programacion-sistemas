@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 
+filesPath="/usr/checkf"
 libName="checkf"
-libPath="/usr/$libName"
+libPath="$filesPath/$libName"
 
 sudo gcc -c main.c -o main.o
 sudo ar -rv libcheckfile.a main.o

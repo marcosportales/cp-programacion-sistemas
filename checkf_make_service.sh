@@ -1,11 +1,13 @@
 #!/usr/bin/bash
 
+filesPath="/usr/checkf"
 serviceName="file_chkd.service"
 servicePath="/etc/systemd/system/$serviceName"
 execName="checkf_exec.sh"
-execPath="/usr/$execName"
+execPath="$filesPath/$execName"
 libName="checkf"
-libPath="/usr/$libName"
+libPath="$filesPath/$libName"
+configPath="/etc/sec-info"
 
 
 sudo touch $servicePath
@@ -13,6 +15,11 @@ sudo chmod 777 $servicePath
 
 sudo touch "$execPath"
 sudo chmod 777 "$execPath"
+
+sudo mkdir "$configPath/"
+sudo touch "$configPath/file.conf"
+sudo touch "$configPath/log.txt"
+sudo chmod 777 "$configPath/log.txt"
 
 {
     echo "#!/usr/bin/bash"
