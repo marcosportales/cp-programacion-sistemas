@@ -10,8 +10,8 @@ libPath="$filesPath/$libName"
 configPath="/etc/sec-info"
 
 
-sudo touch $servicePath
-sudo chmod 777 $servicePath
+sudo touch "$servicePath"
+sudo chmod 777 "$servicePath"
 
 sudo touch "$execPath"
 sudo chmod 777 "$execPath"
@@ -38,7 +38,7 @@ sudo chmod 777 "$configPath/log.txt"
 
     sudo echo "[Install]"
     sudo echo "WantedBy=default.target"
-} >$servicePath
+} >"$servicePath"
 
 sudo systemctl daemon-reload
-sudo systemctl start $serviceName
+sudo systemctl start "$serviceName"
