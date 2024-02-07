@@ -9,8 +9,8 @@
 #include <windows.h>
 #endif
 
-#define CONFIG_FILE "file.conf"
-#define LOG_FILE "log.txt"
+#define CONFIG_FILE "D:\\Lenguajes\\Programacion_Sistema\\Docker\\projects\\cp-programacion-sistemas\\file.conf"
+#define LOG_FILE "D:\\Lenguajes\\Programacion_Sistema\\Docker\\projects\\cp-programacion-sistemas\\log.txt"
 #define CHECK_INTERVAL 10
 
 typedef struct {
