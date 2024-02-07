@@ -79,8 +79,6 @@ void checkFile(Path file) {
             fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, getlogin());
         #endif
             fclose(logFile);
-
-
     }
 }
 
