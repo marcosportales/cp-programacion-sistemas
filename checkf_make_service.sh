@@ -4,9 +4,9 @@ filesPath="/usr/checkf"
 serviceName="file_chkd.service"
 servicePath="/etc/systemd/system/$serviceName"
 execName="checkf_exec.sh"
-execPath="$filesPath//$execName"
+execPath="$filesPath/$execName"
 libName="checkf"
-libPath="$filesPath//$libName"
+libPath="$filesPath/$libName"
 configPath="/etc/sec-info"
 
 
