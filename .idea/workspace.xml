@@ -18,17 +18,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="changin path to file.conf and log.txt in main, this must be changed after the release">
-      <change beforePath="$PROJECT_DIR$/-" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkf.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkf_exec.sh" beforeDir="false" />
+    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="finished latest changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkf_make_lib.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_lib.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkf_make_service.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_service.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libcheckfile.a" beforeDir="false" afterPath="$PROJECT_DIR$/libcheckfile.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/main.o" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707250201072</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="finished latest changes">
+      <option name="closed" value="true" />
+      <created>1707346919174</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707346919174</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +278,8 @@
     <MESSAGE value="fixing service problem" />
     <MESSAGE value="changin paths ad some improvings" />
     <MESSAGE value="changin path to file.conf and log.txt in main, this must be changed after the release" />
-    <option name="LAST_COMMIT_MESSAGE" value="changin path to file.conf and log.txt in main, this must be changed after the release" />
+    <MESSAGE value="finished latest changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished latest changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

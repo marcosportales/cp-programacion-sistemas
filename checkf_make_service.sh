@@ -1,11 +1,12 @@
 #!/usr/bin/bash
 
+filesPath="/usr/checkf"
 serviceName="file_chkd.service"
 servicePath="/etc/systemd/system/$serviceName"
 execName="checkf_exec.sh"
-execPath="/usr/$execName"
+execPath="$filesPath//$execName"
 libName="checkf"
-libPath="/usr/$libName"
+libPath="$filesPath//$libName"
 configPath="/etc/sec-info"
 
 
