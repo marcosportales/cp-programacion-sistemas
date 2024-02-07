@@ -63,22 +63,22 @@ void checkFile(Path file) {
         time_t t = time(NULL) - CHECK_INTERVAL;
         char *fecha = ctime(&t);
 
-        #ifdef _WIN32
-            char nombre[256];
-            DWORD tam = sizeof(nombre);
-            BOOL resultado = GetUserName(nombre, &tam);
-            if (resultado)
-            {
-                fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, nombre);
-            }
-            else
-            {
-                fprintf(logFile, "File %s was modified at time %s but no user found\n", file.path, fecha);
-            }
-        #else
-            fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, getlogin());
-        #endif
-            fclose(logFile);
+#ifdef _WIN32
+        char nombre[256];
+        DWORD tam = sizeof(nombre);
+        BOOL resultado = GetUserName(nombre, &tam);
+        if (resultado)
+        {
+            fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, nombre);
+        }
+        else
+        {
+            fprintf(logFile, "File %s was modified at time %s but no user found\n", file.path, fecha);
+        }
+#else
+        fprintf(logFile, "File %s was modified at time %s by user %s\n", file.path, fecha, getlogin());
+#endif
+        fclose(logFile);
 
 
     }
