@@ -1,5 +1,21 @@
 $libName = "checkf"
 $libPath = ".\$libName"
-gcc -c main.c -o main.o
-ar -rv libcheckfile.a main.o
-gcc -static -o $libPath main.c -I. -L. -lcheckfile
+$pathSecInfo ="C:\sec-info"
+$pathFileConf = "$pathSecInfo\file.conf"
+$pathLog = "$pathSecInfo\log.txt"
+
+if (-not (Test-Path $pathSecInfo)) {
+    New-Item -ItemType Directory -Path $pathSecInfo
+}
+
+if(-not (Test-Path $pathFileConf)){
+    New-Item -Path $pathFileConf -ItemType file
+}
+
+if(-not (Test-Path $pathLog)){
+    New-Item -Path $pathLog -ItemType file
+}
+
+gcc -c main.c -o "$pathSecInfo\main.o"
+ar -rv "$pathSecInfo\libcheckfile.a" "$pathSecInfo\main.o"
+gcc -static -o $pathSecInfo\$libPath main.c -I. -L"$pathSecInfo" -lcheckfile

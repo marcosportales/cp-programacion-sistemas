@@ -9,8 +9,8 @@
 #include <windows.h>
 #endif
 
-#define CONFIG_FILE "C:\\inf-sec\\file.conf"
-#define LOG_FILE "C:\\inf-sec\\log.txt"
+#define CONFIG_FILE "C:\\sec-info\\file.conf"
+#define LOG_FILE "C:\\sec-info\\log.txt"
 #define CHECK_INTERVAL 10
 
 typedef struct {
@@ -35,6 +35,7 @@ Path *readConfigFile() {
         }
         lim++;
         paths[i].path = strdup(line);
+        // printf("%s", line);
 
         i++;
         paths = realloc(paths, (i + 1) * sizeof(Path));
@@ -51,7 +52,7 @@ void checkFile(Path file) {
         exit(EXIT_FAILURE);
     }
     time_t temp = attrs.st_mtime;
-    printf("File %s last modified time: %s\n", file.path, ctime(&temp));
+    // printf("File %s last modified time: %s\n", file.path, ctime(&temp));
     // printf("%ld\n", attrs.st_mtime > time(NULL) - CHECK_INTERVAL);
     if (attrs.st_mtime > time(NULL) - CHECK_INTERVAL) {
         FILE *logFile = fopen(LOG_FILE, "a");
