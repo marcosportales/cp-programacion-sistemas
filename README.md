@@ -6,9 +6,9 @@ Se propone la creación de un servicio denominado `file_chkd`. Este servicio tie
 
 El servicio `file_chkd` está diseñado para comprobar si los archivos han sufrido modificaciones cada 10 segundos. En caso de detectar cambios, el servicio registrará el autor de dichas modificaciones. Este proyecto ha sido desarrollado para ser compatible con los sistemas operativos Windows (mediante WSL2) y Linux.
 
-## Pasos a seguir 
+## Pasos a seguir
 
-- Para iniciar la aplicación en Linux, se debe ejecutar el script `checkf_make_lib.sh`. 
+- Para iniciar la aplicación en Linux, se debe ejecutar el script `checkf_make_lib.sh`.
 - Usted luego debe abrir la carpeta `/etc/sec-info/` y agregar los archivos que desea monitorear en el archivo `file.conf`.
 - Seguido a esto, debe ejecutar el script `checkf_make_service.sh`.
 - Los cambios serán agregados al archivo `log.txt`.
