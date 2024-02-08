@@ -18,11 +18,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="finished latest changes">
+    <list default="true" id="37cc4994-f247-47db-86d2-7690faed3c07" name="Changes" comment="some changes in README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkf_make_lib.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_lib.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkf_make_service.sh" beforeDir="false" afterPath="$PROJECT_DIR$/checkf_make_service.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +102,7 @@
     "Shell Script.MakeService.executor": "Run",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "linux-implementation",
+    "git-widget-placeholder": "main-update-readme-file",
     "last_opened_file_path": "/home/victor/CLionProjects/cp-programacion-sistemas",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -241,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707346919174</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="some changes in README.md">
+      <option name="closed" value="true" />
+      <created>1707349239615</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707349239615</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +284,8 @@
     <MESSAGE value="changin paths ad some improvings" />
     <MESSAGE value="changin path to file.conf and log.txt in main, this must be changed after the release" />
     <MESSAGE value="finished latest changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished latest changes" />
+    <MESSAGE value="some changes in README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes in README.md" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
