@@ -13,4 +13,4 @@ sudo chmod 777 "$configPath/log.txt"
 
 sudo gcc -c main.c -o main.o
 sudo ar -rv libcheckfile.a main.o
-sudo gcc -static -o $libPath main.c -I. -L. -lcheckfile
+sudo gcc -static -o "$libPath" main.c -I. -L. -lcheckfile
